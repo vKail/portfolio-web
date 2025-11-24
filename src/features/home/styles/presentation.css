@@ -1,0 +1,18 @@
+.image-rendering-pixelated {
+	image-rendering: pixelated;
+}
+
+.cursor {
+	display: inline-block;
+	width: 8px;
+	height: 28px;
+	background: #34d399;
+	margin-left: 4px;
+	animation: blink 0.75s infinite;
+}
+
+@keyframes blink {
+	50% {
+		opacity: 0;
+	}
+}
