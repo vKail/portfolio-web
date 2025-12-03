@@ -8,12 +8,13 @@
 		tools: string[];
 		description: string;
 		year: number;
+		github?: string;
 	};
 </script>
 
 <a href={`/projects/${project.id}`} class="project-card block">
 	<div class="project-image">
-		<span>📦</span>
+		<img src={project.image} alt={project.name} class="w-full h-full object-cover opacity-70" />
 	</div>
 	<div class="project-content">
 		<h3 class="project-name">{project.name}</h3>

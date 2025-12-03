@@ -4,14 +4,50 @@
 	let name = '';
 	let email = '';
 	let subject = '';
+	let isSubmitting = false;
+	let submitStatus: 'idle' | 'success' | 'error' = 'idle';
+	let errorMessage = '';
 
-	const handleSubmit = (e: Event) => {
+	const handleSubmit = async (e: Event) => {
 		e.preventDefault();
-		console.log({ name, email, subject });
+		isSubmitting = true;
+		submitStatus = 'idle';
+		errorMessage = '';
+
+		try {
+			const response = await fetch('/api/contact', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					name,
+					email,
+					subject,
+				}),
+			});
+
+			if (response.ok) {
+				submitStatus = 'success';
+				name = '';
+				email = '';
+				subject = '';
+			} else {
+				const data = await response.json();
+				submitStatus = 'error';
+				errorMessage = data.error || 'Failed to send message. Please try again.';
+			}
+		} catch (error) {
+			console.error('Error sending email:', error);
+			submitStatus = 'error';
+			errorMessage = 'Network error. Please check your connection and try again.';
+		} finally {
+			isSubmitting = false;
+		}
 	};
 </script>
 
-<div class="w-full px-6 flex justify-center">
+<div class="w-full px-4 sm:px-6 flex justify-center">
 	<div class="contact-container">
 		<h2 class="form-title">Get In Touch</h2>
 		<p class="contact-intro">
@@ -54,7 +90,16 @@
 			></textarea>
 		</div>
 
-			<button type="submit" class="form-button">Send Message</button>
+			<button type="submit" class="form-button" disabled={isSubmitting}>
+				{isSubmitting ? 'Sending...' : 'Send Message'}
+			</button>
+
+			{#if submitStatus === 'success'}
+				<p class="status-message success">Message sent successfully! I'll get back to you soon.</p>
+			{/if}
+			{#if submitStatus === 'error'}
+				<p class="status-message error">{errorMessage}</p>
+			{/if}
 		</form>
 	</div>
 </div>
@@ -66,9 +111,49 @@
 	}
 
 	.contact-intro {
-		color: rgba(255, 255, 255, 0.75);
-		line-height: 1.7;
-		margin-bottom: 2.5rem;
-		font-size: 1rem;
+		color: var(--color-text-muted);
+		line-height: 1.6;
+		margin-bottom: 2rem;
+		font-size: 0.9rem;
+	}
+
+	@media (min-width: 640px) {
+		.contact-intro {
+			line-height: 1.7;
+			margin-bottom: 2.5rem;
+			font-size: 1rem;
+		}
+	}
+
+	.status-message {
+		margin-top: 1.5rem;
+		padding: 0.875rem;
+		border-radius: 0.375rem;
+		font-size: 0.875rem;
+		text-align: center;
+	}
+
+	@media (min-width: 640px) {
+		.status-message {
+			padding: 1rem;
+			font-size: 0.95rem;
+		}
+	}
+
+	.status-message.success {
+		background-color: rgba(7, 131, 156, 0.1);
+		border: 1px solid rgba(7, 131, 156, 0.3);
+		color: #07839C;
+	}
+
+	.status-message.error {
+		background-color: rgba(239, 68, 68, 0.1);
+		border: 1px solid rgba(239, 68, 68, 0.3);
+		color: #ef4444;
+	}
+
+	.form-button:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
 	}
 </style>

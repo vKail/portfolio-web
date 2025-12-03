@@ -1,0 +1,151 @@
+/* Fade-in animations */
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeInLeft {
+	from {
+		opacity: 0;
+		transform: translateX(-30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes fadeInRight {
+	from {
+		opacity: 0;
+		transform: translateX(30px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+/* Animation classes */
+.fade-in {
+	opacity: 0;
+	transform: translateY(30px);
+	transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-visible {
+	opacity: 1 !important;
+	transform: translateY(0) !important;
+}
+
+.fade-in-up {
+	animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.fade-in-left {
+	animation: fadeInLeft 0.8s ease-out forwards;
+}
+
+.fade-in-right {
+	animation: fadeInRight 0.8s ease-out forwards;
+}
+
+/* Delayed animations */
+.fade-in-delay-100 {
+	opacity: 0;
+	transform: translateY(30px);
+	transition: opacity 0.8s ease-out 0.1s, transform 0.8s ease-out 0.1s;
+}
+
+.fade-in-delay-200 {
+	opacity: 0;
+	transform: translateY(30px);
+	transition: opacity 0.8s ease-out 0.2s, transform 0.8s ease-out 0.2s;
+}
+
+.fade-in-delay-300 {
+	opacity: 0;
+	transform: translateY(30px);
+	transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s;
+}
+
+.fade-in-delay-400 {
+	opacity: 0;
+	transform: translateY(30px);
+	transition: opacity 0.8s ease-out 0.4s, transform 0.8s ease-out 0.4s;
+}
+
+.fade-in-delay-500 {
+	opacity: 0;
+	transform: translateY(30px);
+	transition: opacity 0.8s ease-out 0.5s, transform 0.8s ease-out 0.5s;
+}
+
+/* Theme-aware utility classes */
+.card-bg {
+	background-color: var(--color-card);
+}
+
+.surface-bg {
+	background-color: var(--color-surface);
+}
+
+.text-primary {
+	color: var(--color-text);
+}
+
+.text-muted {
+	color: var(--color-text-muted);
+}
+
+.text-muted-60 {
+	color: var(--color-text-muted);
+	opacity: 0.8;
+}
+
+.text-muted-70 {
+	color: var(--color-text-muted);
+	opacity: 0.9;
+}
+
+.text-muted-80 {
+	color: var(--color-text-muted);
+}
+
+.border-default {
+	border-color: var(--color-border);
+}
+
+.skill-badge-bg {
+	background-color: rgba(7, 131, 156, 0.05);
+}
+
+:root.dark .skill-badge-bg {
+	background-color: rgba(7, 131, 156, 0.1);
+}
+
+.status-badge-bg {
+	background-color: var(--color-border);
+	opacity: 0.5;
+}
+
+:root.dark .status-badge-bg {
+	background-color: rgba(248, 250, 252, 0.1);
+}

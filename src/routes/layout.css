@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import '../styles/colors.css';
+@import '../styles/animations.css';
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
@@ -9,8 +11,10 @@ html {
 }
 
 body {
-	@apply bg-gradient-to-r from-slate-900 to-slate-700 min-h-screen;
-	color: white;
+	background-color: var(--color-background);
+	color: var(--color-text);
+	min-height: 100vh;
 	overflow: hidden;
 	height: 100vh;
+	transition: background-color 0.3s ease, color 0.3s ease;
 }

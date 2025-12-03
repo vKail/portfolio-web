@@ -31,7 +31,7 @@
 	.section-title {
 		font-size: 2rem;
 		font-weight: 600;
-		color: white;
+		color: var(--color-text);
 		margin-bottom: 2rem;
 		letter-spacing: -0.02em;
 	}
@@ -49,7 +49,7 @@
 	.skills-content p {
 		font-size: 1.05rem;
 		line-height: 1.8;
-		color: rgba(255, 255, 255, 0.85);
+		color: var(--color-text-muted);
 		text-align: justify;
 	}
 

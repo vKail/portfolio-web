@@ -73,8 +73,8 @@ export const profileData = {
 		}
 	],
 	socialLinks: [
-		{ platform: 'GitHub', url: 'https://github.com/adrianjurado', icon: '🔗' },
-		{ platform: 'LinkedIn', url: 'https://linkedin.com/in/adrianjurado', icon: '💼' },
+		{ platform: 'GitHub', url: 'https://github.com/vKail', icon: '🔗' },
+		{ platform: 'LinkedIn', url: 'https://www.linkedin.com/in/adrian-jurado-510613352/', icon: '💼' },
 		{ platform: 'Email', url: 'mailto:adrianisrael.616@gmail.com', icon: '✉️' }
 	]
 };

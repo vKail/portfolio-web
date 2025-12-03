@@ -10,7 +10,7 @@
 	top: 0;
 	bottom: 0;
 	width: 2px;
-	background: linear-gradient(to bottom, #34d399, rgba(52, 211, 153, 0.1));
+	background: rgba(7, 131, 156, 0.3);
 }
 
 .experience-item {
@@ -26,7 +26,7 @@
 	top: 0;
 	width: 12px;
 	height: 12px;
-	background-color: #34d399;
+	background-color: #07839C;
 	border: 3px solid rgba(30, 41, 59, 1);
 	border-radius: 50%;
 	transition: transform 0.3s ease;
@@ -43,13 +43,13 @@
 .experience-role {
 	font-size: 1.25rem;
 	font-weight: 600;
-	color: white;
+	color: var(--color-text);
 	margin-bottom: 0.25rem;
 }
 
 .experience-company {
 	font-size: 1.05rem;
-	color: #34d399;
+	color: #07839C;
 	margin-bottom: 0.25rem;
 }
 
@@ -63,11 +63,11 @@
 .experience-period,
 .experience-type {
 	font-size: 0.875rem;
-	color: rgba(255, 255, 255, 0.5);
+	color: var(--color-text-muted);
 }
 
 .experience-description {
-	color: rgba(255, 255, 255, 0.75);
+	color: rgba(30, 41, 59, 0.75);
 	line-height: 1.7;
 	margin-bottom: 1rem;
 }
@@ -80,7 +80,7 @@
 
 .tech-tag {
 	background-color: rgba(52, 211, 153, 0.1);
-	color: #34d399;
+	color: #07839C;
 	padding: 0.25rem 0.75rem;
 	border-radius: 0.25rem;
 	font-size: 0.8rem;

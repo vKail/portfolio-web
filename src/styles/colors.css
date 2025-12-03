@@ -1,0 +1,24 @@
+/* Minimal Color Palette */
+:root {
+	--color-primary: #07839C; /* Cyan blue */
+	--color-accent: #9C2007; /* Red orange */
+	
+	/* Light theme (default) */
+	--color-background: #fafaf9; /* Warm white/pearl */
+	--color-surface: #ffffff; /* Pure white */
+	--color-card: #ffffff;
+	--color-text: #1e293b; /* Dark slate */
+	--color-text-muted: rgba(30, 41, 59, 0.6);
+	--color-border: rgba(30, 41, 59, 0.1);
+}
+
+/* Dark theme */
+.dark {
+	--color-background: #0f172a; /* Dark slate */
+	--color-surface: #1e293b; /* Lighter slate */
+	--color-card: #1e293b;
+	--color-text: #f8fafc; /* Light text */
+	--color-text-muted: rgba(248, 250, 252, 0.6);
+	--color-border: rgba(248, 250, 252, 0.1);
+}
+

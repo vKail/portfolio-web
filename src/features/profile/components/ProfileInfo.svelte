@@ -1,5 +1,6 @@
 <script>
 	import { profileData } from '../data/profile.data.ts';
+	import { Download } from '@lucide/svelte';
 	import '../styles/profile.css';
 </script>
 
@@ -7,7 +8,18 @@
 	<div id="personal-info" class="profile-section">
 		<h1 class="name-header">{profileData.name}</h1>
 		<p class="title-header">{profileData.title}</p>
-		<p class="text-[#34d399] text-lg mb-4"> {profileData.status}</p>
+		
+		<div class="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-4">
+			<p class="text-[#07839C] text-lg">{profileData.status}</p>
+			<a 
+				href="/cv_adrian_jurado.pdf" 
+				download="CV_Adrian_Jurado.pdf"
+				class="inline-flex items-center gap-2 px-4 py-2 rounded-lg border-2 border-[#07839C] text-[#07839C] hover:bg-[#07839C] hover:text-white transition-all duration-300 font-medium text-sm sm:text-base"
+			>
+				<Download size={18} />
+				<span>Download CV</span>
+			</a>
+		</div>
 		
 		<div class="contact-info">
 			<div><span class="profile-label">Location:</span>{profileData.contact.location}</div>
@@ -26,7 +38,7 @@
 							<p class="role-title">{exp.role}</p>
 							<p class="company-name">{exp.company}</p>
 						</div>
-						<span class="text-xs px-3 py-1 rounded-full {exp.status === 'Completed' ? 'bg-white/10 text-white/60' : 'bg-[#34d399]/20 text-[#34d399]'}">
+						<span class="text-xs px-3 py-1 rounded-full {exp.status === 'Completed' ? 'status-badge-bg text-muted-60' : 'bg-[#07839C]/20 text-[#07839C]'}">
 							{exp.status}
 						</span>
 					</div>
@@ -46,7 +58,7 @@
 						<p class="role-title">{profileData.education.degree}</p>
 						<p class="company-name">{profileData.education.institution}</p>
 					</div>
-					<span class="text-xs px-3 py-1 rounded-full bg-[#34d399]/20 text-[#34d399]">
+					<span class="text-xs px-3 py-1 rounded-full bg-[#07839C]/20 text-[#07839C]">
 						{profileData.education.status}
 					</span>
 				</div>
@@ -93,13 +105,13 @@
 		<div class="profile-content">
 			<p class="hobbies-text mb-6">{profileData.hobbies}</p>
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-				<div class="p-4 bg-white/[0.02] border border-white/5 rounded-lg">
-					<h4 class="text-[#34d399] font-semibold mb-2">⚽ Sports Enthusiast</h4>
-					<p class="text-white/70 text-sm">Basketball player, gym regular, and passionate football fan. I follow La Tri and FC Barcelona religiously.</p>
-				</div>
-				<div class="p-4 bg-white/[0.02] border border-white/5 rounded-lg">
-					<h4 class="text-[#34d399] font-semibold mb-2">🎸 Creative Side</h4>
-					<p class="text-white/70 text-sm">I enjoy playing guitar, singing, and gaming. Music and games help me unwind and boost creativity.</p>
+			<div class="p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg">
+				<h4 class="text-[#07839C] font-semibold mb-2">⚽ Sports Enthusiast</h4>
+				<p class="text-muted-70 text-sm">Basketball player, gym regular, and passionate football fan. I follow La Tri and FC Barcelona religiously.</p>
+			</div>
+			<div class="p-4 bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg">
+				<h4 class="text-[#07839C] font-semibold mb-2">🎸 Creative Side</h4>
+					<p class="text-muted-70 text-sm">I enjoy playing guitar, singing, and gaming. Music and games help me unwind and boost creativity.</p>
 				</div>
 			</div>
 		</div>

@@ -6,21 +6,21 @@
 .cta-title {
 	font-size: 3rem;
 	font-weight: 600;
-	color: white;
+	color: var(--color-text);
 	margin-bottom: 1.5rem;
 	letter-spacing: -0.02em;
 }
 
 .cta-subtitle {
 	font-size: 1.25rem;
-	color: rgba(255, 255, 255, 0.6);
+	color: var(--color-text-muted);
 	margin-bottom: 1rem;
 }
 
 .cta-description {
 	max-width: 600px;
 	margin: 0 auto 3rem;
-	color: rgba(255, 255, 255, 0.7);
+	color: var(--color-text-muted);
 	line-height: 1.8;
 	font-size: 1.05rem;
 }
@@ -29,8 +29,8 @@
 	display: inline-block;
 	padding: 1.25rem 2.5rem;
 	background-color: transparent;
-	color: #34d399;
-	border: 2px solid #34d399;
+	color: #07839C;
+	border: 2px solid #07839C;
 	border-radius: 0.375rem;
 	font-size: 1.05rem;
 	font-weight: 600;
@@ -54,14 +54,14 @@
 }
 
 .secondary-link {
-	color: rgba(255, 255, 255, 0.6);
+	color: var(--color-text-muted);
 	text-decoration: none;
 	font-size: 0.95rem;
 	transition: color 0.3s ease;
 }
 
 .secondary-link:hover {
-	color: #60A5FA;
+	color: #07839C;
 }
 
 @media (max-width: 768px) {

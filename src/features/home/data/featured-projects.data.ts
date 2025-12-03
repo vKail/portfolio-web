@@ -1,29 +1,29 @@
 export const featuredProjects = [
 	{
 		id: 'rental-cars',
-		name: 'Rental Cars',
-		description: 'A comprehensive car rental management system featuring real-time inventory tracking, booking functionality, and automated payment processing. Built with a focus on user experience and operational efficiency.',
-		image: '/projects/rental-cars.jpg',
-		technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-		link: '/projects/rental-cars',
+		name: 'Rental Cars System',
+		description: 'Complete vehicle rental management system with online reservations, fleet administration, and multi-role management. Features advanced search, real-time booking, integrated payments with Stripe, and comprehensive financial reporting.',
+		image: '/rental-cars.jpeg',
+		technologies: ['Next.js', 'TypeScript', 'PostgreSQL', 'Stripe'],
+		link: '/projects',
 		featured: true
 	},
 	{
-		id: 'ecuatickets-app',
-		name: 'EcuaTickets',
-		description: 'Digital platform for bus ticket sales across Ecuador. Features route management, real-time seat availability, secure payment integration, and QR code ticket generation for seamless travel experience.',
-		image: '/projects/ecuatickets.jpg',
-		technologies: ['React', 'NestJS', 'PostgreSQL', 'Google Maps API'],
-		link: '/projects/ecuatickets-app',
+		id: 'ecuatickets',
+		name: 'EcuaTickets Platform',
+		description: 'Complete digital platform for interprovincial bus ticket sales in Ecuador. Includes web app for purchases with QR codes, mobile driver app for validation, real-time seat availability, secure payments, and GPS tracking.',
+		image: '/ecuatickets-app.png',
+		technologies: ['React Native', 'TypeScript', 'Zustand', 'QR Scanner'],
+		link: '/projects',
 		featured: true
 	},
 	{
-		id: 'championship-football-frontend',
+		id: 'championship-football',
 		name: 'Championship Football',
-		description: 'Modern web application for managing football championships. Real-time match tracking, statistics visualization, team management, and live score updates with responsive design.',
-		image: '/projects/football.jpg',
-		technologies: ['React', 'TypeScript', 'TailwindCSS', 'Chart.js'],
-		link: '/projects/championship-football-frontend',
+		description: 'Full-stack application for managing football championships with REST API and clean architecture. Features real-time updates via WebSocket, automatic league standings calculation, comprehensive statistics, and tournament management.',
+		image: '/championship-football.png',
+		technologies: ['React', 'TypeScript', 'PostgreSQL', 'Prisma ORM'],
+		link: '/projects',
 		featured: true
 	}
 ];
