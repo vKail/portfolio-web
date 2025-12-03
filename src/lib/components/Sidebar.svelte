@@ -1,11 +1,14 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { Home, User, FolderCode, Mail, Menu, X } from '@lucide/svelte';
+	import { goto } from '$app/navigation';
 	
 	let isOpen = false;
 	
 	$: currentPath = $page.url.pathname;
 	$: currentHash = $page.url.hash;
+	$: homeOpen = currentPath === '/';
+	$: profileOpen = currentPath === '/profile';
 	
 	function toggleSidebar() {
 		isOpen = !isOpen;
@@ -15,6 +18,54 @@
 		if (window.innerWidth < 768) {
 			isOpen = false;
 		}
+	}
+	
+	function navigateToHome(event: MouseEvent) {
+		event.preventDefault();
+		event.stopPropagation();
+		goto('/').then(() => {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		});
+		closeSidebar();
+	}
+	
+	function navigateToProfile(event: MouseEvent) {
+		event.preventDefault();
+		event.stopPropagation();
+		goto('/profile').then(() => {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		});
+		closeSidebar();
+	}
+	
+	function navigateToProjects(event: MouseEvent) {
+		event.preventDefault();
+		goto('/projects').then(() => {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		});
+		closeSidebar();
+	}
+	
+	function navigateToContact(event: MouseEvent) {
+		event.preventDefault();
+		goto('/contact').then(() => {
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		});
+		closeSidebar();
+	}
+	
+	function handleLinkClick(event: MouseEvent) {
+		closeSidebar();
+		setTimeout(() => {
+			const href = (event.currentTarget as HTMLAnchorElement).getAttribute('href');
+			if (href?.includes('#')) {
+				const hash = href.split('#')[1];
+				const element = document.getElementById(hash);
+				if (element) {
+					element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				}
+			}
+		}, 100);
 	}
 </script>
 
@@ -43,35 +94,35 @@
 <div class="sidebar-container" class:open={isOpen}>
 	<p class="sidebar-title">Frontend Developer</p>
 	<nav class="sidebar-nav">
-		<details open>
-			<summary class:active={currentPath === '/'}>
+		<details open={homeOpen}>
+			<summary class:active={currentPath === '/'} onclick={navigateToHome}>
 				<Home size={18} />
 				<span>Home</span>
 			</summary>
 			<ul>
-				<li><a href="/" class:active={currentPath === '/'} onclick={closeSidebar}>About</a></li>
-				<li><a href="/#experience" class:active={currentPath === '/' && currentHash === '#experience'} onclick={closeSidebar}>Experience</a></li>
-				<li><a href="/#featured-projects" class:active={currentPath === '/' && currentHash === '#featured-projects'} onclick={closeSidebar}>Featured</a></li>
+				<li><a href="/#about" class:active={currentPath === '/' && (currentHash === '' || currentHash === '#about')} onclick={handleLinkClick}>About</a></li>
+				<li><a href="/#experience" class:active={currentPath === '/' && currentHash === '#experience'} onclick={handleLinkClick}>Experience</a></li>
+				<li><a href="/#featured-projects" class:active={currentPath === '/' && currentHash === '#featured-projects'} onclick={handleLinkClick}>Featured</a></li>
 			</ul>
 		</details>
-		<details>
-			<summary class:active={currentPath === '/profile'}>
+		<details open={profileOpen}>
+			<summary class:active={currentPath === '/profile'} onclick={navigateToProfile}>
 				<User size={18} />
 				<span>Profile</span>
 			</summary>
 			<ul>
-				<li><a href="/profile#personal-info" class:active={currentPath === '/profile' && currentHash === '#personal-info'} onclick={closeSidebar}>Personal Info</a></li>
-				<li><a href="/profile#experience" class:active={currentPath === '/profile' && currentHash === '#experience'} onclick={closeSidebar}>Experience</a></li>
-				<li><a href="/profile#skills" class:active={currentPath === '/profile' && currentHash === '#skills'} onclick={closeSidebar}>Skills</a></li>
-				<li><a href="/profile#interests" class:active={currentPath === '/profile' && currentHash === '#interests'} onclick={closeSidebar}>Interests</a></li>
-				<li><a href="/profile#connect" class:active={currentPath === '/profile' && currentHash === '#connect'} onclick={closeSidebar}>Connect</a></li>
+				<li><a href="/profile#personal-info" class:active={currentPath === '/profile' && currentHash === '#personal-info'} onclick={handleLinkClick}>Personal Info</a></li>
+				<li><a href="/profile#experience" class:active={currentPath === '/profile' && currentHash === '#experience'} onclick={handleLinkClick}>Experience</a></li>
+				<li><a href="/profile#skills" class:active={currentPath === '/profile' && currentHash === '#skills'} onclick={handleLinkClick}>Skills</a></li>
+				<li><a href="/profile#interests" class:active={currentPath === '/profile' && currentHash === '#interests'} onclick={handleLinkClick}>Interests</a></li>
+				<li><a href="/profile#connect" class:active={currentPath === '/profile' && currentHash === '#connect'} onclick={handleLinkClick}>Connect</a></li>
 			</ul>
 		</details>
-		<a href="/projects" class="nav-link" class:active={currentPath.startsWith('/projects')} onclick={closeSidebar}>
+		<a href="/projects" class="nav-link" class:active={currentPath.startsWith('/projects')} onclick={navigateToProjects}>
 			<FolderCode size={18} />
 			<span>Projects</span>
 		</a>
-		<a href="/contact" class="nav-link" class:active={currentPath === '/contact'} onclick={closeSidebar}>
+		<a href="/contact" class="nav-link" class:active={currentPath === '/contact'} onclick={navigateToContact}>
 			<Mail size={18} />
 			<span>Contact</span>
 		</a>
