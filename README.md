@@ -1,6 +1,6 @@
-# sv
+# Adrian Personal Portfolio
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Portfolio personal desarrollado con Svelte y SvelteKit.
 
 ## Creating a project
 
